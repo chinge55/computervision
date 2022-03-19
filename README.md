@@ -7,17 +7,18 @@ I primarily work with opencv and it's documentation sucks!!
 
 ## Image Pre-Processing Techniques
 1. Simple Image Pre-Processing Techniques
-    (Rotation, Warping, Translation)
+    (Rotation, Morphological Operations)
 2. Image Thresholding 
-3. Connected Components and Contour Detection
-4. Edge Detection Algorithms
-5. Histogram Equalization
-6. Filtering(Linear Filters and Non-Linear Filters)
-7. Frequency Domain Analysis
-8. Edge Detection
+3. Morphological Operations
+4. Connected Components and Contour Detection
+5. Edge Detection Algorithms
+6. Histogram Equalization
+7. Filtering(Linear Filters and Non-Linear Filters)
+8. Frequency Domain Analysis
 9. Image Similarity Detection
 10. Feature Transformation(SIFT, SURF, AKAZE etc.)
-11. Feature Matching
+11. Template Matching
+12. Anisotropic Filters
 
 
 **Libraries used:**
@@ -98,7 +99,26 @@ Some of the methods for Local Thresholding:
 #TODO: Explain all algorithms with citations and code.
 
 
-## Connected Components and Contour Detection
+## Morphological Operations
+(*Morphological Operations done only on binarized Images*)
+
+They are non-linear operations related to shape and morphology of an image.
+
+(Definition could look intimidating but they are one of the most easy to understand algorithms in Image Processing)
+
+1. Image Dilation:
+    
+    Simple definition: For a white pixel inside a binarized image, convert it's neighboring black pixels to white. 
+
+    Eg. If I have a white circle of radius r. I'll have a bigger circle or radius r' after dilation.
+
+    
+2. Image Erosion:
+3. Image Opening:
+4. Image Closing
+5. Image Skeletonization
+6. Finding Perimeter (Boundary Following)
+
 
 
 
