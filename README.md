@@ -1,7 +1,9 @@
 # Computer Vision 
 
 **Why?**
-I primarily work with opencv for most of my computer vision tasks and it's documentation sucks!!. So I've decided to write small documentation + explanation.
+
+
+I primarily work with opencv and it's documentation sucks!! 
 
 ## Image Pre-Processing Techniques
 1. Simple Image Pre-Processing Techniques
@@ -24,7 +26,6 @@ I primarily work with opencv for most of my computer vision tasks and it's docum
 2. ```numpy```
 3. ```matplotlib```
 
-*Most of the calculations will be done in numpy.*
 
 ## Basics Of Images
 Images are just a 3-D matrix of 8 bit numbers: 0-255 (Will be referred as ```uint8```). Where 0 means black and 255 means white. Images are stored in an array:
