@@ -2,8 +2,9 @@
 
 **Why?**
 
-
 I primarily work with opencv and it's documentation sucks!! 
+
+And I tend to forget a lot of things too!
 
 ## Image Pre-Processing Techniques
 1. Simple Image Pre-Processing Techniques
@@ -16,9 +17,12 @@ I primarily work with opencv and it's documentation sucks!!
 7. Filtering(Linear Filters and Non-Linear Filters)
 8. Frequency Domain Analysis
 9. Image Similarity Detection
-10. Feature Transformation(SIFT, SURF, AKAZE etc.)
+10. Feature Extraction(SIFT, SURF, AKAZE etc.)
 11. Template Matching
 12. Anisotropic Filters
+
+## Neural Networks
+1. Training Common Mistakes
 
 
 **Libraries used:**
@@ -102,17 +106,16 @@ Some of the methods for Local Thresholding:
 ## Morphological Operations
 (*Morphological Operations done only on binarized Images*)
 
-They are non-linear operations related to shape and morphology of an image.
+They are non-linear operations related to shape and morphology of an image. 
+If we're doing morphological operations on images then we are going to need an image kernel. A 2D matrix smaller than the image.
 
 (Definition could look intimidating but they are one of the most easy to understand algorithms in Image Processing)
 
 1. Image Dilation:
     
-    Simple definition: For a white pixel inside a binarized image, convert it's neighboring black pixels to white. 
+    Simple definition: For a white pixel inside a binarized image, convert it's neighboring black pixels to white. <br>
+    Eg. If I have a white circle of radius r. I'll have a bigger circle or radius r' after dilation. 
 
-    Eg. If I have a white circle of radius r. I'll have a bigger circle or radius r' after dilation.
-
-    
 2. Image Erosion:
 3. Image Opening:
 4. Image Closing
