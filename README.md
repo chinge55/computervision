@@ -6,6 +6,8 @@ I primarily work with opencv and it's documentation sucks!!
 
 And I tend to forget a lot of things too!
 
+**Disclaimer:** These algorithms will look pretty dumb until you get the thrill of it and see for yourself what magic you can do with them.
+
 ## Image Pre-Processing Techniques
 1. Simple Image Pre-Processing Techniques
     (Rotation, Morphological Operations)
@@ -20,6 +22,7 @@ And I tend to forget a lot of things too!
 10. Feature Extraction(SIFT, SURF, AKAZE etc.)
 11. Template Matching
 12. Anisotropic Filters
+13. Image Moments
 
 ## Neural Networks
 1. Training Common Mistakes
@@ -124,5 +127,51 @@ If we're doing morphological operations on images then we are going to need an i
 
 
 
+## Image Moments
+You might have heard about moments in statistics:
+$$
+    \mu_n = \int_{-\infty}^{+\infty} (x-c)^n f(x)dx
+$$
 
+In simple terms, image moments are a set of statistical parameters to measure the distribution of where the pixels are and their intensities. 
 
+Mathematically, the image moment $M_{ij}$ of order $(i,j)$ for a grayscale image with pixel intensities $I(x,y)$ is calculated as
+
+$$
+M_{ij} = \sum_{x}\sum_{y}x^iy^jI(x,y)
+$$
+Where, x, y refers to the row and column index and $I(x,y)$ refers to the intensity at that location $(x,y)$.
+(From the moment equation, replace integration by summation, well images are discrete. And as images have two coordinates, change the equation to a multi-variate equation)
+
+**Simple Uses Of Image Moments:**
+
+1. Calculating Area:
+
+    To calculate the area of a binary image, you'd need to calculate the first moment. 
+    $$
+    M_{0,0} = \sum_{x = 0}^{w} \sum_{y = 0}^h x^0y^0 f(x,y)
+    $$
+    As, $x^0$ and $y^0$ don't have any effect, can be removed
+    $$
+    M_{0,0} = \sum_{x = 0}^{w} \sum_{y = 0}^h f(x,y)
+    $$
+
+    This, might look intimidating but converting it to code might change your perspective.
+    ```python
+    def get_area(img):
+        height, width = img.shape
+        area = 0
+        for w in range(0, width):
+            for h in range(0, height):
+                area += img[h,w]
+        return area
+    ```
+    #TODO Run this code (simplest codes might not run sometimes)
+    
+
+2. Calculating Centroid:
+    
+    Centroid of an image is just a pixel location. Which is given by:
+    $$
+    centroid = (\frac{\mu_{1,0}}{\mu_{0,0}}, \frac{\mu_{0,1}}{\mu_{0,0}})
+    $$
