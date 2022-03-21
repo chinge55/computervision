@@ -108,6 +108,7 @@ Some of the methods for Local Thresholding:
 
 ## Morphological Operations
 (*Morphological Operations done only on binarized Images*)
+Code: morphology.ipynb
 
 They are non-linear operations related to shape and morphology of an image. 
 If we're doing morphological operations on images then we are going to need an image kernel. A 2D matrix smaller than the image.
@@ -116,12 +117,25 @@ If we're doing morphological operations on images then we are going to need an i
 
 1. Image Dilation:
     
-    Simple definition: For a white pixel inside a binarized image, convert it's neighboring black pixels to white. <br>
+    For a white pixel inside a binarized image, convert it's neighboring black pixels to white. <br>
     Eg. If I have a white circle of radius r. It'll have a bigger circle or radius r' after dilation. 
-
+    
+    For two given matrices, an image matrix and a structuring matrix. The structuring matrix is superimposed into the image matrix. A pixel element is 1(white) if at least one pixel under the kernel (after superimposition) is 1(white)
 2. Image Erosion:
+    
+    Opposite of dilation 
+
+    The structuring matrix is superimposed into the image matrix. A pixel element is white if all the pixels under the kernel (after superimposition) are 1 (white)
+
+    
 3. Image Opening:
+
+    Image Opening is Erosion Followed by Dilation.
 4. Image Closing
+
+    Image closing is Dilation Followed by Erosion.
+
+    *Personally, I don't ever think about Opening or closing Operation. Eg. If I have small white noises around a big white blob laid on an empty canvas. What I'd like to do is remove the smaller blocks. So, I'd first erode the image so that the smaller white blocks would be removed and not the main blob. After that, I would dilate the image so that the original blob of interest would come back to its original size(nearly) And sometimes, you'd want to use different kernels for opening and closing too.*
 5. Image Skeletonization
 6. Finding Perimeter (Boundary Following)
 
