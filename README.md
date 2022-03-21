@@ -117,7 +117,7 @@ If we're doing morphological operations on images then we are going to need an i
 1. Image Dilation:
     
     Simple definition: For a white pixel inside a binarized image, convert it's neighboring black pixels to white. <br>
-    Eg. If I have a white circle of radius r. I'll have a bigger circle or radius r' after dilation. 
+    Eg. If I have a white circle of radius r. It'll have a bigger circle or radius r' after dilation. 
 
 2. Image Erosion:
 3. Image Opening:
@@ -127,7 +127,16 @@ If we're doing morphological operations on images then we are going to need an i
 
 
 
+## Connected Components and Contour Detection
+
+Connected Component Labelling is used in Computer Vision to detect regions in binary digital images, although color images with higher dimensionality can also be processed. 
+
+Connected Components Algorithm is one of the fundamentally simpler algorithms. For a pixel in a Binary Image Matrix, 
+
 ## Image Moments
+*REF BOOK: Moments and Moment Invariants in Pattern Recognition*
+
+
 You might have heard about moments in statistics:
 $$
     \mu_n = \int_{-\infty}^{+\infty} (x-c)^n f(x)dx
@@ -144,8 +153,8 @@ Where, x, y refers to the row and column index and $I(x,y)$ refers to the intens
 (From the moment equation, replace integration by summation, well images are discrete. And as images have two coordinates, change the equation to a multi-variate equation)
 
 **Simple Uses Of Image Moments:**
-
-1. Calculating Area:
+(Used to describe properties of a binary image)
+1. Calculating Area: (Zeroth Order Moment)
 
     To calculate the area of a binary image, you'd need to calculate the first moment. 
     $$
@@ -165,13 +174,24 @@ Where, x, y refers to the row and column index and $I(x,y)$ refers to the intens
             for h in range(0, height):
                 area += img[h,w]
         return area
+    # Easier and faster method
+    area = np.sum(img)
+    #Or
+    area = cv2.moments(img)['m00']
     ```
+
     #TODO Run this code (simplest codes might not run sometimes)
     
 
-2. Calculating Centroid:
+2. Calculating Centroid: (First Order Moment)
     
     Centroid of an image is just a pixel location. Which is given by:
     $$
     centroid = (\frac{\mu_{1,0}}{\mu_{0,0}}, \frac{\mu_{0,1}}{\mu_{0,0}})
     $$
+    ```python
+    def get_centroid(img):
+        mu = cv2.moments(img)
+        centroid = mu['m10']//mu['m00'], mu['m01']//mu['m00']
+        return centroid
+    ```
