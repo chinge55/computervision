@@ -137,9 +137,8 @@ If we're doing morphological operations on images then we are going to need an i
 
     *Personally, I don't ever think about Opening or closing Operation. Eg. If I have small white noises around a big white blob laid on an empty canvas. What I'd like to do is remove the smaller blocks. So, I'd first erode the image so that the smaller white blocks would be removed and not the main blob. After that, I would dilate the image so that the original blob of interest would come back to its original size(nearly) And sometimes, you'd want to use different kernels for opening and closing too.*
 5. Image Skeletonization
-6. Finding Perimeter (Boundary Following)
 
-
+    Skeletonization is the process of reducing foreground regions of a binary image to a skeleton-like image preserving the connectivity of the original region. (Well, Basically creating a skeleton). Rather than explaining, it's better to view the code and dissect it to view how it works and I leave it up to the reader to refer the code and do so. 
 
 ## Connected Components and Contour Detection
 
@@ -148,8 +147,6 @@ Connected Component Labelling is used in Computer Vision to detect regions in bi
 Connected Components Algorithm is one of the fundamentally simpler algorithms. For a pixel in a Binary Image Matrix, 
 
 ## Image Moments
-*REF BOOK: Moments and Moment Invariants in Pattern Recognition*
-
 
 You might have heard about moments in statistics:
 $$
