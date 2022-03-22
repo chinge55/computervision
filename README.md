@@ -1,11 +1,5 @@
 # Computer Vision 
 
-**Why?**
-
-I primarily work with opencv and it's documentation sucks!! 
-
-And I tend to forget a lot of things too!
-
 **Disclaimer:** These algorithms will look pretty dumb until you get the thrill of it and see for yourself what magic you can do with them.
 
 ## Image Pre-Processing Techniques
