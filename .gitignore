@@ -2,3 +2,6 @@
 # IPYNB:
 .ipynb_checkpoints
 
+
+#MacOS
+.DS_Store
