@@ -141,6 +141,7 @@ If we're doing morphological operations on images then we are going to need an i
     Skeletonization is the process of reducing foreground regions of a binary image to a skeleton-like image preserving the connectivity of the original region. (Well, Basically creating a skeleton). Rather than explaining, it's better to view the code and dissect it to view how it works and I leave it up to the reader to refer the code and do so. 
 
 ## Connected Components and Contour Detection
+*Code: connected_components_contour.ipynb*
 
 ### Connected Components:
 
