@@ -142,9 +142,70 @@ If we're doing morphological operations on images then we are going to need an i
 
 ## Connected Components and Contour Detection
 
+### Connected Components:
+
 Connected Component Labelling is used in Computer Vision to detect regions in binary digital images, although color images with higher dimensionality can also be processed. 
 
-Connected Components Algorithm is one of the fundamentally simpler algorithms. For a pixel in a Binary Image Matrix, 
+Connected Components Algorithm is one of the fundamentally simpler algorithms. For any binarized image, find all the pixels(white) that are connected to each other and label them. 
+Eg. 
+$$
+\begin{bmatrix}
+0&0&0&0&0&0&0&0&0&0&0&0&0&0\\
+0&0&255&255&0&0&0&0&0&0&0&0&0&0\\
+0&255&0&255&255&0&0&0&0&0&0&0&0&0\\
+0&0&255&0&0&0&0&0&0&0&0&0&0&0\\
+0&0&255&0&0&0&0&0&0&255&0&0&0&0\\
+0&0&255&0&0&0&0&0&0&255&0&0&0&0\\
+0&0&255&0&0&0&0&0&0&255&255&255&0&0\\
+0&0&255&0&0&0&0&0&255&255&255&255&0&0\\
+0&0&0&0&0&0&0&0&0&0&0&0&0&0\\
+0&0&0&0&0&0&0&0&0&0&0&0&0&0\\
+\end{bmatrix}
+$$ 
+
+As we can see tht there are two distinct white patches (255) inside the image. What connected component labelling does is to label those two patches based on whether they are connected or not. 
+$$
+\begin{bmatrix}
+0&0&0&0&0&0&0&0&0&0&0&0&0&0\\
+0&0&1&1&0&0&0&0&0&0&0&0&0&0\\
+0&1&0&1&1&0&0&0&0&0&0&0&0&0\\
+0&0&1&0&0&0&0&0&0&0&0&0&0&0\\
+0&0&1&0&0&0&0&0&0&2&0&0&0&0\\
+0&0&1&0&0&0&0&0&0&2&0&0&0&0\\
+0&0&1&0&0&0&0&0&0&2&2&2&0&0\\
+0&0&1&0&0&0&0&0&2&2&2&2&0&0\\
+0&0&0&0&0&0&0&0&0&0&0&0&0&0\\
+0&0&0&0&0&0&0&0&0&0&0&0&0&0\\
+\end{bmatrix}
+$$ 
+
+The second image matrix is the matrix gotten after connected component labelling. I think what it does is pretty self-explanatory. 
+
+Algorithm: 
+
+(*There have been various algorithms on connected components, but I'll write a simple and inefficient method*)
+
+1. For pixel in img row, cols
+2. component_no = 0
+3. If the pixel is 0, continue
+4. For the pixel, check it's neighbors
+    if neighbor is already labelled, 
+        
+        if neighbors have multiple labels:
+            change it's label to the neighbor's label (lower).
+            change all the pixels of other label to the lower label
+        
+        (If, one pixel has two neighbors 1 and 2. Change the pixel to 1. And change all the pixels of 2 to 1 as this pixel connects two blobs.)
+
+    Else
+
+        pixel = component_no; component_no += 1
+
+### Contour Detection:
+
+We could take the base as connected components and try to add a boundary following algorithm. What we're trying to get is a proper boundary of all the connected components, and in turn detect contours for a given image. 
+
+
 
 ## Image Moments
 
