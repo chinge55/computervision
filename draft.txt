@@ -1,0 +1,7 @@
+
+# Why are Corners important?
+Corners are invariant to linear operations like rotation, scaling, translation, illumination etc. 
+For detecting edges, normal gradient was enough, but corners are a little different. 
+
+Corners are the points in which at least two edges join together. 
+

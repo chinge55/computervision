@@ -282,5 +282,8 @@ A plain white image doesn't have any detail. So, it's gradient is zero. But if t
 With that roadmap, let's dive into the first sub-topic. Corner Detection. 
 
 ### Corner Detection
+ 
+ A corner, in simple words is a junction of two edges. 
+ Edge being a pixel where there is a sudden change in brightness in a certain direction. Corners are important features because they are invariant to various operations like rotation, scaling, translation etc. 
 
 
