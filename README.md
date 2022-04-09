@@ -1,3 +1,4 @@
+*(Initially I thought of going each topic one by one but that doesn't seem practical. So, Writing on the topic that I'm curently working on)*
 # Computer Vision 
 
 **Disclaimer:** These algorithms will look pretty dumb until you get the thrill of it and see for yourself what magic you can do with them.
@@ -262,3 +263,24 @@ Where, x, y refers to the row and column index and $I(x,y)$ refers to the intens
         centroid = mu['m10']//mu['m00'], mu['m01']//mu['m00']
         return centroid
     ```
+
+
+## Feature Extraction and Matching
+
+Personally, Feature extraction is one of the most exciting topics. And the places that they are used is immense. Whether it be **Google Image Search** or the **Panorama Images** we click from our phone and many other tasks. Feature extraction is used. Just Feature Extraction is not enough for most of the tasks. i.e Google Image Search probably uses Bag Of Words for images but more on that later. Meanwhile, Panorama Images use Feature Matching to stich the images together. 
+
+Firstly, let's discuss what Feature Extraction is. 
+
+*For any Image, there are certain features in that image. If we could extract the important features from that image, we'd have reduced the size of the image and also have the most important details from that image.*
+
+But What exactly are the important features?
+
+Well, the starting point is **Derivative**. 
+
+A plain white image doesn't have any detail. So, it's gradient is zero. But if there's a distinct black line, the image gradient changes from white to black when the line is encountered. We could also save, by how much the colors change when we encounter that specific point. That is the most basic idea for Edge Detection. If we try to go further taking this idea, We'd reach towards Corner detection and then finally towards our actual goal, Feature Descriptors like SIFT, SURF, AKAZE etc.
+
+With that roadmap, let's dive into the first sub-topic. Corner Detection. 
+
+### Corner Detection
+
+
