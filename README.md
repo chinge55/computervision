@@ -236,53 +236,51 @@ Where, x, y refers to the row and column index and $I(x,y)$ refers to the intens
 
 **Simple Uses Of Image Moments:**
 (Used to describe properties of a binary image)
-1. Calculating Area: (Zeroth Order Moment)
+#### Calculating Area: (Zeroth Order Moment)
 
-    To calculate the area of a binary image, you'd need to calculate the first moment. 
+To calculate the area of a binary image, you'd need to calculate the first moment. 
     
 $$
 M_{0,0} = \sum_{x = 0}^{w} \sum_{y = 0}^h x^0y^0 f(x,y)
 $$
     
-    As, $x^0$ and $y^0$ don't have any effect, can be removed
+As, $x^0$ and $y^0$ don't have any effect, can be removed
     
 $$
 M_{0,0} = \sum_{x = 0}^{w} \sum_{y = 0}^h f(x,y)
 $$
 
-    This, might look intimidating but converting it to code might change your perspective.
+This, might look intimidating but converting it to code might change your perspective.
 
-    ```python
-    def get_area(img):
-        height, width = img.shape
-        area = 0
-        for w in range(0, width):
-            for h in range(0, height):
-                area += img[h,w]
-        return area
-    # Easier and faster method
-    area = np.sum(img)
-    #Or
-    area = cv2.moments(img)['m00']
-    ```
+```python
+def get_area(img):
+    height, width = img.shape
+    area = 0
+    for w in range(0, width):
+        for h in range(0, height):
+            area += img[h,w]
+    return area
+# Easier and faster method
+area = np.sum(img)
+#Or
+area = cv2.moments(img)['m00']
+```
 
-    #TODO Run this code (simplest codes might not run sometimes)
-    
 
-2. Calculating Centroid: (First Order Moment)
+#### Calculating Centroid: (First Order Moment)
     
-    Centroid of an image is just a pixel location. Which is given by:
-    
-    $$
-    centroid = (\frac{\mu_{1,0}}{\mu_{0,0}}, \frac{\mu_{0,1}}{\mu_{0,0}})
-    $$
-    
-    ```python
-    def get_centroid(img):
-        mu = cv2.moments(img)
-        centroid = mu['m10']//mu['m00'], mu['m01']//mu['m00']
-        return centroid
-    ```
+Centroid of an image is just a pixel location. Which is given by:
+
+$$
+centroid = (\frac{\mu_{1,0}}{\mu_{0,0}}, \frac{\mu_{0,1}}{\mu_{0,0}})
+$$
+
+```python
+def get_centroid(img):
+    mu = cv2.moments(img)
+    centroid = mu['m10']//mu['m00'], mu['m01']//mu['m00']
+    return centroid
+```
 
 
 ## Feature Extraction and Matching
