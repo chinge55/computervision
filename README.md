@@ -241,16 +241,17 @@ Where, x, y refers to the row and column index and $I(x,y)$ refers to the intens
     To calculate the area of a binary image, you'd need to calculate the first moment. 
     
 $$
-    M_{0,0} = \sum_{x = 0}^{w} \sum_{y = 0}^h x^0y^0 f(x,y)
+M_{0,0} = \sum_{x = 0}^{w} \sum_{y = 0}^h x^0y^0 f(x,y)
 $$
     
     As, $x^0$ and $y^0$ don't have any effect, can be removed
     
 $$
-    M_{0,0} = \sum_{x = 0}^{w} \sum_{y = 0}^h f(x,y)
+M_{0,0} = \sum_{x = 0}^{w} \sum_{y = 0}^h f(x,y)
 $$
 
     This, might look intimidating but converting it to code might change your perspective.
+
     ```python
     def get_area(img):
         height, width = img.shape
