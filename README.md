@@ -301,15 +301,17 @@ With that roadmap, let's dive into the first sub-topic. Corner Detection.
 
 ### Corner Detection
  
- A corner, in simple words is a junction of two edges. 
- Edge being a pixel where there is a sudden change in brightness in a certain direction. Corners are important features because they are invariant to various operations like rotation, scaling, translation etc. 
- 
- The equation of Harris Corner Detection is:
- $$
- E(u, v) = \sum_{x,y} w(x,y) [I(x + u, y + v) - I(x,y)]^2
- $$
- The Window could either be a rectangular window or a gaussian Window. 
+A corner, in simple words is a junction of two edges. 
+Edge being a pixel where there is a sudden change in brightness in a certain direction. Corners are important features because they are invariant to various operations like rotation, scaling, translation etc. 
 
- For corner detection, we'd have to maximize the term $E(u,v)$. 
+The equation of Harris Corner Detection is:
+
+$$
+E(u, v) = \sum_{x,y} w(x,y) [I(x + u, y + v) - I(x,y)]^2
+$$
+
+The Window could either be a rectangular window or a gaussian Window. 
+
+For corner detection, we'd have to maximize the term $E(u,v)$. 
 
 
