@@ -197,10 +197,20 @@ Algorithm:
 
         pixel = component_no; component_no += 1
 
+In OpenCV, to do a Connected Components Labelling:
+```python
+
+
+```
+
 ### Contour Detection:
 
 We could take the base as connected components and try to add a boundary following algorithm. What we're trying to get is a proper boundary of all the connected components, and in turn detect contours for a given image. 
 
+OpenCV Provides a simple API for contour detection 
+```python
+contours, hierarchy = cv2.findContours(img, )
+``` 
 
 
 ## Image Moments
@@ -285,5 +295,13 @@ With that roadmap, let's dive into the first sub-topic. Corner Detection.
  
  A corner, in simple words is a junction of two edges. 
  Edge being a pixel where there is a sudden change in brightness in a certain direction. Corners are important features because they are invariant to various operations like rotation, scaling, translation etc. 
+ 
+ The equation of Harris Corner Detection is:
+ $$
+ E(u, v) = \sum_{x,y} w(x,y) [I(x + u, y + v) - I(x,y)]^2
+ $$
+ The Window could either be a rectangular window or a gaussian Window. 
+
+ For corner detection, we'd have to maximize the term $E(u,v)$. 
 
 
