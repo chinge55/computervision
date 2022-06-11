@@ -144,6 +144,7 @@ Connected Component Labelling is used in Computer Vision to detect regions in bi
 
 Connected Components Algorithm is one of the fundamentally simpler algorithms. For any binarized image, find all the pixels(white) that are connected to each other and label them. 
 Eg. 
+
 $$
 \begin{bmatrix}
 0&0&0&0&0&0&0&0&0&0&0&0&0&0\\
@@ -160,6 +161,7 @@ $$
 $$ 
 
 As we can see tht there are two distinct white patches (255) inside the image. What connected component labelling does is to label those two patches based on whether they are connected or not. 
+
 $$
 \begin{bmatrix}
 0&0&0&0&0&0&0&0&0&0&0&0&0&0\\
@@ -206,6 +208,7 @@ We could take the base as connected components and try to add a boundary followi
 ## Image Moments
 
 You might have heard about moments in statistics:
+
 $$
     \mu_n = \int_{-\infty}^{+\infty} (x-c)^n f(x)dx
 $$
@@ -217,6 +220,7 @@ Mathematically, the image moment $M_{ij}$ of order $(i,j)$ for a grayscale image
 $$
 M_{ij} = \sum_{x}\sum_{y}x^iy^jI(x,y)
 $$
+
 Where, x, y refers to the row and column index and $I(x,y)$ refers to the intensity at that location $(x,y)$.
 (From the moment equation, replace integration by summation, well images are discrete. And as images have two coordinates, change the equation to a multi-variate equation)
 
@@ -225,10 +229,13 @@ Where, x, y refers to the row and column index and $I(x,y)$ refers to the intens
 1. Calculating Area: (Zeroth Order Moment)
 
     To calculate the area of a binary image, you'd need to calculate the first moment. 
+    
     $$
     M_{0,0} = \sum_{x = 0}^{w} \sum_{y = 0}^h x^0y^0 f(x,y)
     $$
+    
     As, $x^0$ and $y^0$ don't have any effect, can be removed
+    
     $$
     M_{0,0} = \sum_{x = 0}^{w} \sum_{y = 0}^h f(x,y)
     $$
@@ -254,9 +261,11 @@ Where, x, y refers to the row and column index and $I(x,y)$ refers to the intens
 2. Calculating Centroid: (First Order Moment)
     
     Centroid of an image is just a pixel location. Which is given by:
+    
     $$
     centroid = (\frac{\mu_{1,0}}{\mu_{0,0}}, \frac{\mu_{0,1}}{\mu_{0,0}})
     $$
+    
     ```python
     def get_centroid(img):
         mu = cv2.moments(img)
